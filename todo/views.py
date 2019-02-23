@@ -9,7 +9,7 @@ class ProjectList(generics.ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
-class ProjectDetail(generics.RetrieveAPIView):
+class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
@@ -17,6 +17,6 @@ class TodoList(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class =TodoSerializer
 
-class TodoDetail(generics.RetrieveAPIView):
+class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class =TodoSerializer
