@@ -1,22 +1,14 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import viewsets
 
 from .models import Project, Todo
 from .serializers import ProjectSerializer, TodoSerializer
 
 
-class ProjectList(generics.ListAPIView):
+class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
-class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
-
-class TodoList(generics.ListAPIView):
+class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
-    serializer_class =TodoSerializer
-
-class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Todo.objects.all()
-    serializer_class =TodoSerializer
+    serializer_class = TodoSerializer
