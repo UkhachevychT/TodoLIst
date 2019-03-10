@@ -6,29 +6,23 @@ Todos!
 
 
   <div class="projects">
-    <div *ngFor="let project of projects">
-    <div class="card">
-      <h5 class="card-header">{{project.title}}</h5>
-      <div class="card-body">
-        <p class="card-text">{{project.title}}</p>
-        <div class="btn btn-primary">Show</div>
-      </div>
-    </div>
-    </div>
+    <ul class="list-group" *ngFor="let project of projects">
+      <li class="list-group-item">{{project.title}}</li>
+    </ul>
   </div>
 
   <div class="todos">
     <div *ngFor="let todo of todos" style="margin-bottom: 20px;">
-      <ul class="list-group">
-        <li class="list-group-item">title: {{todo.title}}</li>
-        <li class="list-group-item">description: {{todo.description}}</li>
-        <li class="list-group-item">dueDate: {{todo.dueDate}}</li>
-        <li class="list-group-item">priority: {{todo.priority}}</li>
-        <li class="list-group-item">project: {{todo.project}}</li>
-      </ul>
+      <div class="card">
+        <div class="card-header">
+          {{todo.title}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{todo.description}}</p>
+          <small>dueDate: {{todo.dueDate}}</small>
+        </div>
+      </div>
     </div>
     <hr>
   </div>
-
-
 </div>
