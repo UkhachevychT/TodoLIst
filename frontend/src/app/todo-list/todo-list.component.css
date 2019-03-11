@@ -1,13 +1,14 @@
-.container{
+.content{
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .projects{
-  flex: 1;
+  flex-basis: 40%;
 }
 
 .todos{
-  flex: 1;
+  flex-basis: 50%;
 }
