@@ -9,6 +9,7 @@ import { APIService } from  '../api.service';
 export class TodoListComponent implements OnInit {
 
   private  todos:  Array<object> = [];
+  private  filteredTodos:  Array<object> = [];
   private  projects:  Array<object> = [];
   constructor(private  apiService:  APIService) { }
   
@@ -24,10 +25,22 @@ export class TodoListComponent implements OnInit {
     });
   }
 
+  private  filterByProject(data, project){
+    return data.filter(e => e.project === project);
+  }
+
+  public  getTodosByProj(project){
+    this.filteredTodos = this.filterByProject(this.todos, project);
+  }
+  
   public  getProjects(){
     this.apiService.getProjects().subscribe((data: Array<object>) => {
       this.projects = data;
       console.log(data);
     });
+  }
+
+  clickMe(id:string){
+    this.getTodosByProj(id)
   }
 }
