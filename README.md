@@ -1,4 +1,5 @@
 # TodoList
+(under development)
 
 Django + Angular project for my portfolio. Represent simple todo list app with CRUD functionality.
 Main goal of this project is to learn what is REST API and how to create and use it, aswell as get familiar with Angular.
