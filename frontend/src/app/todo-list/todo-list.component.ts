@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from  '../api.service';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -11,7 +14,9 @@ export class TodoListComponent implements OnInit {
   private  todos:  Array<object> = [];
   private  filteredTodos:  Array<object> = [];
   private  projects:  Array<object> = [];
-  constructor(private  apiService:  APIService) { }
+
+
+  constructor(private  apiService:  APIService, private modalService: NgbModal) { }
   
   ngOnInit() {
     this.getTodos();
@@ -42,5 +47,26 @@ export class TodoListComponent implements OnInit {
 
   clickMe(id:string){
     this.getTodosByProj(id)
+  }
+
+
+  closeResult: string;
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 }

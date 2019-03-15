@@ -8,19 +8,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {AppRoutingModule} from  './app-routing.module';
 import { UiModule } from './ui/ui.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UiModule
+    UiModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-.content{
+/* .content{
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
@@ -9,6 +9,15 @@
   flex-basis: 40%;
 }
 
+.list-group-item{
+  margin-bottom: 20px;
+}
+
 .todos{
   flex-basis: 50%;
 }
+
+.add-control{
+
+  justify-content: space-between;
+} */
